@@ -6,7 +6,7 @@ I didn't want to build another __Clone Project__ or a simple __CRUD APP__.
 I wanted to build a web application from scratch to showcase some of my skills as a Frontend Developer using new technologies. 
 
 ## Stack
-* [Next.js](https://nextjs.org/)
+* [Next.js](https://nextjs.org/) (app router)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Tailwind CSS](https://tailwindcss.com/)
 * [Auth.js](https://authjs.dev/?_gl=1*1w56pfq*_gcl_au*MTI3NTYyNjgxMS4xNzA4OTYwNjM1)
