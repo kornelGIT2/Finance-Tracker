@@ -5,7 +5,6 @@ import Link from "next/link";
 import ExpensesList from "./ExpensesList";
 
 type ExpenseClientProps = {
-  children: React.ReactNode;
   page: number;
   limit: number;
 };

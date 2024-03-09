@@ -36,15 +36,13 @@ const DashboardNavbar = ({ children, session }: any) => {
       >
         <div className=" h-full px-3 py-4 overflow-y-auto border-r text-gray-200 border-gray-700 dark:bg-gray-800 bg-slate-900 ">
           <a href="/dashboard" className="flex items-center ps-2.5 mb-10 mt-2">
-            <Image
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-6 me-3 sm:h-7"
-              alt="Flowbite Logo"
-              height={30}
-              width={30}
+            <img
+              src={session?.user?.image}
+              className="h-6 me-3 sm:h-7 rounded-[25px]"
+              alt="User avatar"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              {`Hello, ${session?.user?.name}`}
+              {`${session?.user?.name}`}
             </span>
           </a>
           <div className="space-y-10">

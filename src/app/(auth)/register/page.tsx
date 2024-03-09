@@ -15,11 +15,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import * as React from "react";
 import { register } from "@/api/auth/register";
 import { toast } from "sonner";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Card from "@/components/auth/Card";
 
 const Register = () => {

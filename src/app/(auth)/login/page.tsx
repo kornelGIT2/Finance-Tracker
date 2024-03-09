@@ -136,7 +136,10 @@ const Login = () => {
               <hr className=" h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-25 dark:opacity-100 w-full" />
             </div>
           </div>
-          <div className="flex shadow-lg bg-slate-900 rounded-lg p-2 gap-2 w-full justify-center items-center cursor-pointer hover:bg-slate-800">
+          <button
+            type="button"
+            className="flex shadow-lg bg-slate-900 rounded-lg p-2 gap-2 w-full justify-center items-center cursor-pointer hover:bg-slate-800"
+          >
             <Image
               className=""
               src="/gmail.png"
@@ -147,7 +150,7 @@ const Login = () => {
             <label className="text-[14px] cursor-pointer  ">
               Sign in with Google
             </label>
-          </div>
+          </button>
           <div className="flex flex-col items-center gap-4">
             <span className="text-[12px] cursor-pointer ">
               Forgot your password?

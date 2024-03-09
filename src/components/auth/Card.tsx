@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import * as React from "react";
 import { useRouter } from "next/navigation";
+import { SocialButton } from "./SocialButton";
 
 interface Card {
   showSocial: boolean;
@@ -73,28 +74,7 @@ const Card = ({
             <hr className=" h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-25 dark:opacity-100 w-full" />
           </div>
         </div>
-        {login
-          ? (
-              <div className="flex shadow-lg bg-slate-900 rounded-lg p-2 gap-2 w-full justify-center items-center cursor-pointer hover:bg-slate-800">
-                <Image
-                  className=""
-                  src="/gmail.png"
-                  alt=""
-                  height={30}
-                  width={30}
-                ></Image>
-                <label className="text-[14px] cursor-pointer  ">
-                  Sign in with Google
-                </label>
-              </div>
-            ) && (
-              <div className="flex flex-col items-center gap-4">
-                <span className="text-[12px] cursor-pointer ">
-                  {forgotPassword}
-                </span>
-              </div>
-            )
-          : null}
+        <SocialButton />
       </div>
     </main>
   );
