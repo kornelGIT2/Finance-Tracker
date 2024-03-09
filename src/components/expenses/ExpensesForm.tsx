@@ -38,10 +38,18 @@ const expensesSchema = z.object({
   date: z.date({ required_error: "A date is required" }),
 });
 
+export type Tag = {
+  label: string;
+  value: string;
+  color: string;
+  __isNew__?: boolean;
+};
+
 const ExpensesForm = () => {
   const [date, setDate] = React.useState<Date | undefined>();
   const [selected, setSelected] = React.useState();
   const [loading, setLoading] = React.useState(false);
+  const [tag, setTag] = React.useState<Tag>();
 
   const form = useForm<z.infer<typeof expensesSchema>>({
     resolver: zodResolver(expensesSchema),
@@ -55,7 +63,7 @@ const ExpensesForm = () => {
 
   const onSubmit = (data: z.infer<typeof expensesSchema>) => {
     setLoading(true);
-    addExpense(data).then((res) => {
+    addExpense(data, tag).then((res) => {
       toast.success("Expense added");
       setLoading(false);
     });
@@ -154,7 +162,12 @@ const ExpensesForm = () => {
             <FormItem className="flex flex-col">
               <FormLabel>Tags</FormLabel>
               <FormControl>
-                <MultiSelect />
+                <MultiSelect
+                  getTag={({ tag }: Tag) => {
+                    setTag(tag);
+                    console.log(tag);
+                  }}
+                />
               </FormControl>
               <FormDescription>Select tags</FormDescription>
               <FormMessage className="absolute" />

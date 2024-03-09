@@ -27,7 +27,7 @@ export type Expenses = {
   tag?: Tag[];
 };
 
-const Expenses = async ({
+const Expenses = ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -37,42 +37,20 @@ const Expenses = async ({
   const limit =
     typeof searchParams.limit === "string" ? Number(searchParams.limit) : 8;
 
-  const { expenses } = await getExpenses({ page, limit });
-
-  const sum = getSum(expenses);
+  // const sum = getSum(expenses);
 
   return (
     <div className="md:grid md:grid-cols-12  text-white md:space-x-20  md:p-10 max-w-screen-lg flex flex-col justify-center w-full">
       <div className="md:col-span-6 md:border-r border-gray-700 md:p-10 ">
-        <Header>{sum}</Header>
         <div className="">
           <ExpensesForm />
         </div>
       </div>
 
       <div className="md:col-span-6 md:w-[500px] relative">
-        <div className="flex  text-center gap-4 absolute justify-end  w-full m-[-8px]">
-          <Link
-            className={`${
-              page === 1 ? "pointer-events-none opacity-50" : ""
-            } flex justify-center items-center bg-slate-900 p-3 rounded-lg w-[120px] hover:bg-slate-800`}
-            href={`/expenses?page=${page > 1 ? page - 1 : 1}`}
-          >
-            Previous
-          </Link>
-
-          <Link
-            className={` ${
-              expenses.length < 8 ? "pointer-events-none opacity-50" : ""
-            } flex justify-center items-center bg-slate-900 p-3 rounded-lg w-[120px] hover:bg-slate-800`}
-            href={`/expenses?page=${page >= 1 ? page + 1 : 1}`}
-          >
-            Next
-          </Link>
-        </div>
-        <ExpenseClientWrapper page={page}>
-          <ExpensesList expenses={expenses} />
-        </ExpenseClientWrapper>
+        <Suspense key={page} fallback={<SuspenseLoading />}>
+          <ExpenseClientWrapper page={page} limit={limit} />
+        </Suspense>
       </div>
     </div>
   );

@@ -2,8 +2,9 @@
 import { db } from "@/lib/db";
 import { auth } from "../../../auth";
 import { revalidatePath } from "next/cache";
+import { type Tag } from "@/components/expenses/ExpensesForm";
 
-export const addExpense = async (data: any) => {
+export const addExpense = async (data: any, tag: Tag) => {
   //const validated = loginSchema.safeParse(values);
 
   //if (!validated.success) {
@@ -30,6 +31,11 @@ export const addExpense = async (data: any) => {
               value: parseInt(data.amount),
               title: data.title,
               desc: data.desc,
+              tags: tag.__isNew__
+                ? {
+                    create: { createdById: result[0].id, name: tag.value },
+                  }
+                : {},
             },
           });
         } catch (error) {

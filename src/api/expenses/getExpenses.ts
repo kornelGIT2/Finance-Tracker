@@ -24,6 +24,9 @@ export const getExpenses = async ({
           orderBy: [{ date: "desc" }, { id: "desc" }],
           take: limit,
           skip: skip,
+          include: {
+            tags: {},
+          },
         });
       } catch (error) {
         throw error;
@@ -32,5 +35,8 @@ export const getExpenses = async ({
   } catch (error) {
     throw error;
   }
-  return { expenses } as const;
+  return {
+    expenses: expenses,
+    hasNextPage: limit + skip < 8,
+  };
 };

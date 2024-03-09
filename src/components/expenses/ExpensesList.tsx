@@ -1,10 +1,12 @@
 import { type Expenses } from "@/app/(protected)/expenses/page";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Suspense } from "react";
+import { getExpenses } from "@/api/expenses/getExpenses";
+import Link from "next/link";
 
-const ExpensesList = async ({ expenses }: { expenses: Expenses[] }) => {
+const ExpensesList = async ({ expenses }: any) => {
   const result = Object.values(
-    expenses.reduce<Record<any, any>>((acc, x) => {
+    expenses.reduce((acc: any, x: any) => {
       let index = x.date as string;
       acc[index] = [...(acc[index] || []), x];
       return acc;
@@ -35,7 +37,7 @@ const ExpensesList = async ({ expenses }: { expenses: Expenses[] }) => {
                           </span>
 
                           <span className="bg-green-200 p-2 rounded-lg text-gray-700 ml-4 text-sm font-semibold">
-                            {"Grocery"}{" "}
+                            {el?.tags[0]?.name}
                           </span>
                         </div>
                         <div className="text-md">
