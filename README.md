@@ -13,6 +13,7 @@ I wanted to build a web application from scratch to showcase some of my skills a
 * [shadcn/ui](https://ui.shadcn.com/)
 * [Prisma](https://www.prisma.io/)
 * [PostgreSQL](https://www.postgresql.org/)
+* [Framer Motion](https://www.framer.com/motion/)
 
 
 ## Status
