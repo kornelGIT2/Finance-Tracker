@@ -32,6 +32,7 @@ model Expenses {
   desc          String?
   date          DateTime
   createdBy     User @relation(fields: [createdById], references: [id])
+
   createdById   String
   tags          Tag[]
 }
@@ -39,7 +40,8 @@ model Expenses {
 model Tag {
 
   id            Int  @id @default(autoincrement())
-  name          String
+  label         String
+  color         String
   Expenses      Expenses? @relation(fields: [expenseId], references: [id])
   expenseId     Int? 
   createdBy     User @relation(fields: [createdById], references: [id])

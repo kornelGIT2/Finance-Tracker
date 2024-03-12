@@ -1,8 +1,6 @@
-import { Suspense } from "react";
-import SuspenseLoading from "./SuspenseLoading";
-import { getExpenses } from "@/api/expenses/getExpenses";
+import { getExpenses } from "@/api/expenses/action";
 import Link from "next/link";
-import ExpensesList from "./ExpensesList";
+import ExpensesList from "./expenseList";
 
 type ExpenseClientProps = {
   page: number;
@@ -14,7 +12,7 @@ const ExpenseClientWrapper = async ({ page, limit }: ExpenseClientProps) => {
 
   return (
     <>
-      <div className="flex  text-center gap-4 absolute justify-end  w-full m-[-8px]">
+      <div className="flex text-center gap-4 absolute md:justify-end justify-center w-full m-[-8px] mt-5 md:mt-[-10px]">
         <Link
           className={`${
             page === 1 ? "pointer-events-none opacity-50" : ""
@@ -26,7 +24,7 @@ const ExpenseClientWrapper = async ({ page, limit }: ExpenseClientProps) => {
 
         <Link
           className={` ${
-            expenses.length < 8 ? "pointer-events-none opacity-50" : ""
+            expenses?.length < 8 ? "pointer-events-none opacity-50" : ""
           } flex justify-center items-center bg-slate-900 p-3 rounded-lg w-[120px] hover:bg-slate-800`}
           href={`/expenses?page=${page >= 1 ? page + 1 : 1}`}
         >

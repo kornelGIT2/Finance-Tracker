@@ -1,10 +1,10 @@
 export const publicRoutes = ["/", "/about"];
 export const authRoutes = ["/login", "/register"];
 export const protectedRoutes = [
-  "/dashboard",
-  "/expenses",
-  "/incomes",
-  "/transactions",
+  { name: "Dashboard", path: "/dashboard" },
+  { name: "Expenses", path: "/expenses" },
+  { name: "Incomes", path: "/incomes" },
+  { name: "Manage Tags", path: "/manage_tags" },
 ];
 
 /**

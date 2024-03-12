@@ -12,14 +12,12 @@ import {
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { DatePickerDemo } from "./DatePicker";
 import { format } from "date-fns";
-import { MultiSelect } from "../ui/select";
-import CreatableSelect from "react-select/creatable";
+import { MultiSelect } from "@/components/ui/select";
 import {
   Popover,
   PopoverContent,
@@ -29,7 +27,7 @@ import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { addExpense } from "@/api/expenses/action";
-import { CircularProgress } from "@mui/material";
+import { Tag } from "@/types/types";
 
 const expensesSchema = z.object({
   amount: z.string().min(1, { message: "Minimum 1" }),
@@ -38,18 +36,10 @@ const expensesSchema = z.object({
   date: z.date({ required_error: "A date is required" }),
 });
 
-export type Tag = {
-  label: string;
-  value: string;
-  color: string;
-  __isNew__?: boolean;
-};
-
 const ExpensesForm = () => {
   const [date, setDate] = React.useState<Date | undefined>();
-  const [selected, setSelected] = React.useState();
+  const [tag, setTags] = React.useState<Tag>();
   const [loading, setLoading] = React.useState(false);
-  const [tag, setTag] = React.useState<Tag>();
 
   const form = useForm<z.infer<typeof expensesSchema>>({
     resolver: zodResolver(expensesSchema),
@@ -69,12 +59,17 @@ const ExpensesForm = () => {
     });
   };
 
+  const handleChangeTags = (tag: any) => {
+    setTags(tag);
+  };
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="md:p-5 p-10 space-y-12 w-full "
       >
+        <label className="font-semibold text-3xl">Add a new expense</label>
         <FormField
           control={form.control}
           name="title"
@@ -162,12 +157,7 @@ const ExpensesForm = () => {
             <FormItem className="flex flex-col">
               <FormLabel>Tags</FormLabel>
               <FormControl>
-                <MultiSelect
-                  getTag={({ tag }: Tag) => {
-                    setTag(tag);
-                    console.log(tag);
-                  }}
-                />
+                <MultiSelect onChange={handleChangeTags} />
               </FormControl>
               <FormDescription>Select tags</FormDescription>
               <FormMessage className="absolute" />

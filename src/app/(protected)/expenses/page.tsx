@@ -1,17 +1,8 @@
 import * as React from "react";
-import { db } from "@/lib/db";
-import { auth } from "../../../../auth";
-import { getSum } from "@/lib/utils";
-import Header from "@/components/expenses/Header";
-import ExpensesForm from "@/components/expenses/ExpensesForm";
-import ExpensesList from "@/components/expenses/ExpensesList";
-import { Button } from "@/components/ui/button";
-import { getExpenses } from "@/api/expenses/getExpenses";
-import Link from "next/link";
-import SuspenseLoading from "@/components/expenses/SuspenseLoading";
+import ExpensesForm from "./_components/expenseForm";
+import ExpenseClientWrapper from "./_components/expenseClientWrapper";
+import SuspenseLoading from "./_components/skeleton";
 import { Suspense } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
-import ExpenseClientWrapper from "@/components/expenses/ExpenseClientWrapper";
 
 type Tag = {
   id: string;
@@ -41,7 +32,7 @@ const Expenses = ({
 
   return (
     <div className="md:grid md:grid-cols-12  text-white md:space-x-20  md:p-10 max-w-screen-lg flex flex-col justify-center w-full">
-      <div className="md:col-span-6 md:border-r border-gray-700 md:p-10 ">
+      <div className="md:col-span-6 md:border-r border-b border-gray-700 md:p-10 ">
         <div className="">
           <ExpensesForm />
         </div>

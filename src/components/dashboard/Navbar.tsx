@@ -83,7 +83,9 @@ const DashboardNavbar = ({ children, session }: any) => {
         </div>
       </aside>
 
-      <div className="p-4 sm:ml-64 flex min-h-screen">{children}</div>
+      <div className="p-4 sm:ml-64 flex min-h-screen md:w-full justify-center ">
+        {children}
+      </div>
     </>
   );
 };

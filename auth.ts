@@ -14,7 +14,6 @@ export const {
       if (session.user) {
         session.user.userId = token.userId;
       }
-      console.log({ session, sessionToken: token });
 
       return session;
     },
