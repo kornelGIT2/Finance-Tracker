@@ -3,7 +3,7 @@ A web app for expense management with implemented authentication and authorizati
 
 # Background
 I didn't want to build another __Clone Project__ or a simple __CRUD APP__.
-I wanted to build a web application from scratch to showcase some of my skills as a Frontend Developer using new technologies. 
+I wanted to build a web application from scratch to showcase some of my skills and ideas as a Frontend Developer using new technologies. 
 
 ## Stack
 * [Next.js](https://nextjs.org/) (app router)
