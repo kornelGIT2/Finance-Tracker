@@ -1,11 +1,21 @@
-# Portfolio-Project
-A web app for expense management with implemented authentication and authorization.
+# Finance Tracker App - Portfolio Project
+Source code is accessible inside the master branch.
 
-# Background
-I didn't want to build another __Clone Project__ or a simple __CRUD APP__.
-I wanted to build a web application from scratch to showcase some of my skills and ideas as a Frontend Developer using new technologies. 
+# Overview
+The Finance Tracker App is a comprehensive financial management tool designed to empower individuals to take control of their finances.
 
-## Stack
+# Features
+* __Expense Tracking__: Easily log and categorize expenses to gain insight into your spending habits.
+* __Budget Management__: Set and track budgets for different categories to ensure you stay within your financial goals.
+* __Incomes Tracking__: Log incomes manually or automate the process.
+* __Data Visualization__: Make an overview of your expenses and incomes with a chart categorized by categories or months to better understand spending habits.
+* __Categories Management__: Manage your categories.
+
+# Motivation
+This project was made from scratch for the portfolio purposes.
+
+
+## Technology Stack
 * [Next.js](https://nextjs.org/) (app router)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Tailwind CSS](https://tailwindcss.com/)
@@ -16,5 +26,12 @@ I wanted to build a web application from scratch to showcase some of my skills a
 * [Framer Motion](https://www.framer.com/motion/)
 
 
+# Future Roadmap
+The journey of the Finance Tracker App is just beginning. In the future, I plan to add features such as 
+* Customized alerts
+* More data visualization and expense analytics to provide insights into spending patterns, trends and areas where users can potentially save money
+* Multiple Currency Support
+* and more...
+
 ## Status
-WORK IN PROGRESS...
+Work in progress...
