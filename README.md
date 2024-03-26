@@ -1,4 +1,4 @@
-# Finance Tracker App - Portfolio Project
+# Finance Tracker App
 Source code is accessible inside the master branch.
 
 # Overview
