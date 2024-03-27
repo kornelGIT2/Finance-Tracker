@@ -10,6 +10,7 @@ The Finance Tracker App is a comprehensive financial management tool designed to
 * __Incomes Tracking__: Log incomes manually or automate the process.
 * __Data Visualization__: Make an overview of your expenses and incomes with a chart categorized by categories or months to better understand spending habits.
 * __Categories Management__: Manage your categories.
+* __Authentication and Authorization__: Secure user access with registration, login, and route protection.
 
 # Motivation
 This project was made from scratch for the portfolio purposes.
